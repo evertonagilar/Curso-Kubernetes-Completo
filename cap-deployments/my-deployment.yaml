@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment2
+  labels:
+    app: frontend
+  annotations:
+    autor: "Everton de Vargas Agilar"
+    curso: "Kubernetes Completo: Orquestração Docker + Projeto Final"
+    capitulo: "Deployments"
+spec:
+  template:
+    metadata:
+      name: pod-my-nginx
+      labels:
+        env: production
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+
+  selector:
+    matchLabels:
+      env: production
+
+  strategy:
+    type: RollingUpdate
+
+  replicas: 4
