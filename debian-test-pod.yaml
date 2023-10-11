@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debian-test-pod
+spec:
+  containers:
+    - name: debian-test-pod
+      image: debian
+      tty: true
+      stdin: true
